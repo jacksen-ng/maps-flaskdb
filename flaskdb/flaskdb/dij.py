@@ -1,6 +1,6 @@
 import heapq
 
-class Dijkstra:
+class Dijkstra():
     def __init__(self, graph):
         self.graph = graph
         self.distances = {node: float('infinity') for node in graph}
