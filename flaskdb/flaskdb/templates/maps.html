@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_dccd9d18af078a5a0157bc9bfd255f6f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_dccd9d18af078a5a0157bc9bfd255f6f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_dccd9d18af078a5a0157bc9bfd255f6f = L.map(
+                "map_dccd9d18af078a5a0157bc9bfd255f6f",
+                {
+                    center: [3.5, 31.6],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 2,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_c475445e0af75615ddb571b80da3d922 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_c475445e0af75615ddb571b80da3d922.addTo(map_dccd9d18af078a5a0157bc9bfd255f6f);
+        
+    
+            var marker_361533beccdb3252826f24d3cb2573b5 = L.marker(
+                [35.6599, 139.72975],
+                {}
+            ).addTo(map_dccd9d18af078a5a0157bc9bfd255f6f);
+        
+    
+        var popup_6957c1d6d476a9bc37477d82227b3c66 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_00999162fce249cf2f0531d35ef7e4f3 = $(`<div id="html_00999162fce249cf2f0531d35ef7e4f3" style="width: 100.0%; height: 100.0%;">                         49: 49 Roppongi - Roppongi Hills<br><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Roppongi_Hills_2013-12-01.jpg/560px-Roppongi_Hills_2013-12-01.jpg" alt="560px-Roppongi_Hills_2013-12-01.jpg" height="120">                     </div>`)[0];
+                popup_6957c1d6d476a9bc37477d82227b3c66.setContent(html_00999162fce249cf2f0531d35ef7e4f3);
+            
+        
+
+        marker_361533beccdb3252826f24d3cb2573b5.bindPopup(popup_6957c1d6d476a9bc37477d82227b3c66)
+        ;
+
+        
+    
+    
+            var marker_c73d2b7ea51736ab21f57ee39af367ab = L.marker(
+                [35.69688, 139.79345],
+                {}
+            ).addTo(map_dccd9d18af078a5a0157bc9bfd255f6f);
+        
+    
+        var popup_495d1363abfc5fb78ceda5b3c454ec08 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4f50a10b2c2ac51ca3f809f2f2598599 = $(`<div id="html_4f50a10b2c2ac51ca3f809f2f2598599" style="width: 100.0%; height: 100.0%;">                         55: 55 Ryogoku Kokugikan - The Professional Sumo<br><img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Ryogoku_Kokugikan_Tsuriyane_05212006.jpg" alt="Ryogoku_Kokugikan_Tsuriyane_05212006.jpg" height="120">                     </div>`)[0];
+                popup_495d1363abfc5fb78ceda5b3c454ec08.setContent(html_4f50a10b2c2ac51ca3f809f2f2598599);
+            
+        
+
+        marker_c73d2b7ea51736ab21f57ee39af367ab.bindPopup(popup_495d1363abfc5fb78ceda5b3c454ec08)
+        ;
+
+        
+    
+    
+            var poly_line_2bde4ba3465b510fe185558755f00262 = L.polyline(
+                [[35.6599, 139.72975], [35.69688, 139.79345], [35.6599, 139.72975]],
+                {"bubblingMouseEvents": true, "color": "#FF0000", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#FF0000", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_dccd9d18af078a5a0157bc9bfd255f6f);
+        
+</script>
+</html>
