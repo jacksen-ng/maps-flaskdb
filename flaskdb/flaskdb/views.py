@@ -20,6 +20,8 @@ import folium
 from folium import plugins
 import os
 import csv
+import json
+
 import pathlib
 import imghdr
 from PIL import Image
@@ -152,6 +154,9 @@ def maps(name):
     elif name == "tokyo":
         spotlist = da.get_spots_by_area("tokyo")
         maps = folium.Map(location=[35.6645,139.7104], zoom_start=11)
+    elif name == "kuala lumpur":
+        spotlist = da.get_spots_by_area("kuala lumpur")
+        maps = folium.Map(location=[3.139, 101.6869], zoom_start=11)
     elif name == "spring":
         spotlist = da.get_spots_by_season("2020-01-01", "2020-04-01")
         maps = folium.Map(location=[35.6645,139.7104], zoom_start=11)
@@ -288,16 +293,16 @@ def searchspot_dij():
     if not "username" in session:
         flash("Log in is required.", "danger")
         return redirect(url_for("views.login"))
-    
+
     da = DataAccess(app)
     spot_list = da.get_spots()
-    
+
     form = TouristForm(spot_list=spot_list)
     
     if form.validate_on_submit():
         selected_spots = form.tourist_spots.data
         spot_list = da.get_spots_by_ids(selected_spots)
-
+        # Define the graph
         graph = {}
         for spot in spot_list:
             graph[spot.id] = {}
@@ -311,13 +316,29 @@ def searchspot_dij():
         distances, previous_nodes = dij.calculate(start)
         route = dij.get_path(start, end)
 
+        
+        print("Calculated Route:", route)
+
+        print("Selected Spots:", selected_spots)
+
+        
+        missing_spots = set(selected_spots) - set(route)
+        if missing_spots:
+            print("Missing spots in the route:", missing_spots)
+            for spot in missing_spots:
+                route.insert(route.index(end), spot)
+        print("Final Route:", route)
+        
+        
+        dist = 0
+        for i in range(len(route) - 1):
+            dist += graph[route[i]][route[i + 1]]
+        print("Total Distance:", dist)
+
         maps = folium.Map(location=[3.5, 31.6], zoom_start=2)
         line_data1 = []
         spot_dict = {spot.id: spot for spot in spot_list}
         
-        print("Route:", route)  
-        
-
         for rt in route:
             spot = spot_dict[rt]
             line_data1.append((spot.latitude, spot.longitude))
@@ -335,16 +356,15 @@ def searchspot_dij():
             else:
                 popup_content = f"{rt}: {spot.id} {spot.spotname}"
                 
-            folium.Marker(location=[spot.latitude, spot.longitude], popup=popup_content).add_to(maps)
-
-        line_data1.append(line_data1[0])
-        folium.PolyLine(line_data1, weight=5, color="#FF0000").add_to(maps)
+            folium.Marker(location=[spot.latitude, spot.longitude], popup=popup_content).add_to(maps)   
         
+        line_data1.append(line_data1[0])
+        line1 = folium.PolyLine(line_data1, weight=5, color="#FF0000").add_to(maps)
+        plugins.PolyLineTextPath(line1, "Total Distance: " + str(dist), offset=-2).add_to(maps)
+
         filepath = os.path.join(basedir, "templates/maps.html")
         maps.save(filepath)
 
         return render_template("maps.html")
     
     return render_template("search_dij.html", form=form)
-
-

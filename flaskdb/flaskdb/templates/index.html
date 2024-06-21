@@ -1,5 +1,6 @@
 <!-- index.html - a template file on flaskdb -->
 <!-- Copyright (C) 2024 Yasuhiro Hayashi -->
+
 {% extends "bootstrap/base.html" %}
 
 {% block head %}
@@ -35,6 +36,7 @@
             <li><a href="{{ url_for('views.maps', name='newyork') }}" target="maps">New York</a></li>
             <li><a href="{{ url_for('views.maps', name='london') }}" target="maps">London</a></li>
             <li><a href="{{ url_for('views.maps', name='tokyo') }}" target="maps">Tokyo</a></li>
+            <li><a href="{{ url_for('views.maps', name='kuala lumpur') }}" target="maps">Kuala Lumpur</li>
             <li><a href="{{ url_for('views.maps_by_latlng', lat='40.7525351', lng='-73.9927076') }}" target="maps">Empire State Building (40.7525351, -73.9927076)</a></li>
             <li><a href="{{ url_for('views.maps_by_latlng', lat='51.5007325', lng='-0.1268141', zoom='5') }}" target="maps">Big Ben (51.5007325, -0.1268141)</a></li>
             <li><a href="{{ url_for('views.maps_by_latlng', lat='35.6809591', lng='139.7673068', zoom='15') }}" target="maps">Tokyo Station (35.6809591, 139.7673068)</a></li>

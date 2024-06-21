@@ -54,14 +54,14 @@
         {% for subfield in form.tourist_spots %}
             {% set ns = namespace(i = 0) %}
             <tr>
-            <td><input type="checkbox" id="{{ subfield.id }}" name="{{ subfield.name }}" value="{{ subfield.data }}"></td>
-            <td>{{ form.spot_list[loop.index - 1].id }}</td>
-            <td>{{ form.spot_list[loop.index - 1].user_id }}</td>
-            <td>{{ form.spot_list[loop.index - 1].area }}</td>
-            <td>{{ form.spot_list[loop.index - 1].city_name }}</td>
-            <td scope="row"><a href="{{ url_for('views.maps_by_latlng_with_zoom', lat=form.spot_list[loop.index - 1].latitude, lng=form.spot_list[loop.index - 1].longitude, zoom=14) }}/" target="new">{{ form.spot_list[loop.index - 1].spotname }}</a></td>
-            <td>{{ form.spot_list[loop.index - 1].latitude }}</td>
-            <td>{{ form.spot_list[loop.index - 1].longitude }}</td>
+                <td><input type="checkbox" id="{{ subfield.id }}" name="{{ subfield.name }}" value="{{ subfield.data }}"></td>
+                <td>{{ form.spot_list[loop.index - 1].id }}</td>
+                <td>{{ form.spot_list[loop.index - 1].user_id }}</td>
+                <td>{{ form.spot_list[loop.index - 1].area }}</td>
+                <td>{{ form.spot_list[loop.index - 1].cityname }}</td>
+                <td scope="row"><a href="{{ url_for('views.maps_by_latlng_with_zoom', lat=form.spot_list[loop.index - 1].latitude, lng=form.spot_list[loop.index - 1].longitude, zoom=14) }}/" target="new">{{ form.spot_list[loop.index - 1].spotname }}</a></td>
+                <td>{{ form.spot_list[loop.index - 1].latitude }}</td>
+                <td>{{ form.spot_list[loop.index - 1].longitude }}</td>
             </tr>
             {% set ns.i = ns.i + 1 %}
         {% endfor %}
